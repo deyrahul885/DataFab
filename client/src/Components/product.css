@@ -1,0 +1,9 @@
+@media screen and (max-width:576px) {
+    .css-10mzr36-MuiGrid-root {
+        margin-top: -100px;
+    }
+    .makeStyles-bgImg-4{
+        width: 100%;
+        margin-top: 0;
+    }
+}
