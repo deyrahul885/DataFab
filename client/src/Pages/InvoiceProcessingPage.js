@@ -45,29 +45,15 @@ const InvoiceProcessingPage=()=> {
                 setProgess(progress);
             }
         }).then(res => {
-            console.log(res);
+            console.log("response",res);
             getFile({ name: res.data.name,
-                     path: 'http://localhost:8000' + res.data.path
+                      path: 'http://localhost:8000' + res.data.path
                    })
         }).catch(err => console.log(err))
     }
 
     return (
         <>
-        {/* <Box sx={{ flexGrow: 1,marginTop:'90px',border:'1px solid #000000' }}>
-            <div className="file-upload">
-                    <input type="file" ref={el} onChange={handleChange} />
-                    <div className="progessBar" style={{ width: progress }}>
-                    {progress}
-                    </div>
-                    <button onClick={uploadFile} className="upbutton">
-                    Upload
-                    </button>
-            <hr />
-            {data.path && <img src={data.path} alt={data.name} />}
-            </div>
-        </Box> */}
-
         <Box sx={{ flexGrow: 1,marginTop:'90px',border:'1px solid #000000' }}>
         <Grid container>
         <Grid item xs={6} md={4} sx={{backgroundColor:'#191970'}}>
@@ -91,6 +77,7 @@ const InvoiceProcessingPage=()=> {
             <Grid item xs={6} md={8}>
             <Box>
                 <DataTable User={InvoiceUser} Title={Title}/>
+                <h2>{data.name}</h2>
             </Box> 
             </Grid>
         </Grid>   

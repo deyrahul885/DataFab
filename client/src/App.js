@@ -8,6 +8,7 @@ import {Routes,Route} from 'react-router-dom'
 import ProductPage from './Pages/ProductPage';
 import InvoiceProcessingPage from './Pages/InvoiceProcessingPage';
 import ResumeUpload from './Pages/ResumeUpload';
+import InvoiceUpload from './Pages/InvoiceUpload';
 
 const theme = createTheme();
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/' element={<Homepage/>}/>
           <Route path='/product' element={<ProductPage/>}/>
           <Route path='/invoice' element={<InvoiceProcessingPage/>}/>
+          <Route path='/invoiceupload' element={<InvoiceUpload/>}/>
           <Route path='/resumeupload' element={<ResumeUpload/>}/>
         </Routes>
         <Footer/>
