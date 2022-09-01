@@ -1,12 +1,12 @@
 import { BlobServiceClient} from '@azure/storage-blob';
 
-// const sasToken = process.env.storagesastoken || "sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2021-05-28T16:49:40Z&st=2021-05-24T08:49:40Z&spr=https&sig=Ce0EinaxClvGkB71InL%2B2IEjAfd0gMsiqnNfo9wCRr8%3D"; // Fill string with your SAS token
+const sasToken = "?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2022-09-29T15:24:46Z&st=2022-09-01T07:24:46Z&spr=https,http&sig=MnQWhLo4k2GHiwtIUzBuyoP%2FBRYaM4OQkMau8btyKAE%3D"; // Fill string with your SAS token
 const containerName = 'testcontainer';
 const storageAccountName = "cloudstorage7"; // Fill string with your Storage resource name
 
 // Feature flag - disable storage feature to app if not configured
 export const isStorageConfigured = () => {
-  return !((!storageAccountName));
+  return !((!storageAccountName || !sasToken));
 };
 
 // return list of blobs in container to display
@@ -44,7 +44,7 @@ const uploadFileToBlob = async (file) => {
 
   // get BlobService = notice `?` is pulled out of sasToken - if created in Azure portal
   const blobService = new BlobServiceClient(
-    `https://${storageAccountName}.blob.core.windows.net`
+    `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
   );
   
   // get Container - full public read access
